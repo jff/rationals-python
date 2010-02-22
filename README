@@ -1,0 +1,36 @@
+This Python class is an object-oriented implementation of the algorithm
+that I and Roland Backhouse created in 2008 to enumerate the positive 
+rational numbers in two different ways. The algorithm is new and it has 
+never been implemented in Python before (as far as I know). 
+See [0] for the complete formal derivation, proofs, and other details.
+
+[0] Recounting the Rationals: Twice!, Roland Backhouse and Joao F. Ferreira,
+    Published in Mathematics of Program Construction, Springer-Verlag, LNCS 5133,
+    pp. 79--91 (proceedings of the 9th International Conference Mathematics of
+    Program Construction, MPC 2008, Marseille, France, July 15--18, 2008)
+    Available from http://joaoff.com/publications/2008/rationals
+
+
+Example
+=======
+
+from rationals import *
+
+e = RationalsEnumeration()  # create a new enumeration
+print e                     # show the first rational (see note below)
+print e.next()              # show the second rational
+print e.previous()          # show the first rational again
+print e.se()                # show the current stern-eisenstein rational (as a pair)
+print e.sb()                # show the current stern-brocot rational (as a pair)
+print e.jump(5)             # show the fifth rational
+print e.jump(-5)            # show the first rational again
+print e.goto(10)            # show the tenth rational
+print e.goto(0)             # show the first rational again
+
+# Note: an object of RationalsEnumeration keeps track of the current
+#       position in the enumeration and both rationals (the stern-einsenstein
+#       and the stern-brocot rationals). Example:
+
+# Current position in the enumeration: 0
+# Current rational (Stern-Brocot order):     (1,1)
+# Current rational (Stern-Eisenstein order): (1,1)
